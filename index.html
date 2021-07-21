@@ -113,52 +113,6 @@
 
 
   
-    <article id="post-1、Activity" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/04/14/1%E3%80%81Activity/" class="article-date">
-  <time datetime="2021-04-14T06:49:11.784Z" itemprop="datePublished">2021-04-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Surface-Flinger"><a href="#Surface-Flinger" class="headerlink" title="Surface Flinger"></a>Surface Flinger</h3><p>负责UI内容渲染，将想要在屏幕上渲染的内容，统一有序的安排成输出设备能理解的方式输出。</p>
-<h3 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h3><p>窗口，负责可视化内容排版。将排版的结果通过WindowManager，以进程通信的方式，去与后台服务WindowManagerService通信。最终递交到Surface Flinger输出和呈现。</p>
-<p>Surface Flinger为每一个Window都映射一块Surface。来用于管理和渲染屏幕内容。</p>
-<h3 id="sView"><a href="#sView" class="headerlink" title="sView"></a>sView</h3><p>由于Window负担重，于是用<strong>组合模式</strong>组装了ViewGroup。因为组合模式，而能够在自身内部存在更多的View和ViewGroup。</p>
-<p><img src="/Users/pengkai/Documents/%E7%AC%94%E8%AE%B0/Android/Relearn-Android/%E9%85%8D%E5%9B%BE/acticity-1.png" alt="未命名文件"></p>
-<h3 id="Acrivity"><a href="#Acrivity" class="headerlink" title="Acrivity"></a>Acrivity</h3><p>运用<strong>模版方法模式</strong>封装，并且编写一套管理窗口的任务和返回栈机制。开发者只需将其继承，就可以拿到一个简练的模版。</p>
-<p>对系统来说：Activity本质任是被管理的窗口，系统能够管理窗口间的切换和通信。</p>
-<p>对开发者来说：Activity本质就是视图控制器，开发者可以通过Activity控制View以他们想要的方式进行排版。并且在特殊情况下保存或恢复View的排版内容。</p>
-<h3 id="综上"><a href="#综上" class="headerlink" title="综上"></a>综上</h3><p>1、最开始只有一块运行着原始Android系统的搬砖。</p>
-<p>2、Surface Flinger的出现为了更加方便的渲染UI。</p>
-<p>3、Window的出现是为了管理UI内容的排版。</p>
-<p>4、Window不堪重负，于是将责任下发到View上。</p>
-<p>5、View通过组合模式，在递归的帮助下，完成排版的工作。</p>
-<p>6、Activity的出现是为了满足“多窗口管理”和“傻瓜式视图管理”的需要。</p>
-<p>所以Activity的知识边界无非就是“<strong>生命周期、环境变化导致的重建、多窗口跳转、视图的加载和优化</strong>”等等。</p>
-<p><img src="/Users/pengkai/Documents/%E7%AC%94%E8%AE%B0/Android/Relearn-Android/%E9%85%8D%E5%9B%BE/acticity-2.png" alt="acticity-2"></p>
-<h4 id="从设计模式的角度解析Activity和Window的关系"><a href="#从设计模式的角度解析Activity和Window的关系" class="headerlink" title="从设计模式的角度解析Activity和Window的关系"></a>从设计模式的角度解析Activity和Window的关系</h4><p>Activity是基于<strong>模版方法模式</strong>和<strong>组合模式</strong>的实现，目的是为了将后台的机制屏蔽，留给开发者的就只是简单的、干净的Activity子类模版。</p>
-<p>Activity的指责包含Window，但不限于Window。</p>
-<p>Activity内部，通过组合模式，将多个职能实例安排到一起，根据需要，来取用他们。</p>
-<p>这样既能调到自己所需要的，又能为子类Activity屏蔽掉不需要的方法。（例如window那些管理窗口的功能。）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/14/1%E3%80%81Activity/" data-id="ckrdb8sez00006b740y9te1bg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
 </section>
@@ -177,7 +131,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li></ul>
     </div>
   </div>
 
@@ -191,10 +145,6 @@
         
           <li>
             <a href="/2021/07/21/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/14/1%E3%80%81Activity/">(no title)</a>
           </li>
         
       </ul>
